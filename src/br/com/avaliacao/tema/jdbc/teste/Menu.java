@@ -62,6 +62,8 @@ public class Menu {
     pizza.setNomeCliente(scanner.next());
     System.out.print("VALOR PEDIDO: ");
     pizza.setValorPedido(scanner.nextDouble());
+    System.out.print("SABOR DA PIZZA: ");
+    pizza.setSabor(scanner.next());
 
     PizzaDAO pizzaDAO = new PizzaDAO();
     pizzaDAO.inserePizza(pizza);
@@ -83,6 +85,7 @@ public class Menu {
     ArrayList<Pizza> pizzas = (ArrayList<Pizza>) pizzaDAO.listarPizza();
     pizzas.forEach(item -> System.out.println("\nN° pedido: " + item.getId() +
                                               "\nNome do cliente: " + item.getNomeCliente() +
-                                              "\nValor do Pedido: " + item.getValorPedido()));
+                                              "\nValor do Pedido: " + item.getValorPedido() +
+                                              "\nSabor da pizza: " + item.getSabor()));
   }
 }

@@ -18,11 +18,12 @@ public class PizzaDAO {
 
   public void inserePizza(Pizza pizza) {
     try {
-      String query = "INSERT INTO pizzas (nomeCliente, valorPedido) VALUES (?, ?)";
+      String query = "INSERT INTO pizzas (nomeCliente, valorPedido, sabor) VALUES (?, ?, ?)";
       preparedStatement = connection.getConnection().prepareStatement(query);
 
       preparedStatement.setString(1, pizza.getNomeCliente());
       preparedStatement.setDouble(2, pizza.getValorPedido());
+      preparedStatement.setString(3, pizza.getSabor());
 
       preparedStatement.executeUpdate();
     } catch (SQLException e) {
@@ -43,7 +44,8 @@ public class PizzaDAO {
         pizzas.add(new Pizza(
                 resultSet.getInt("id"),
                 resultSet.getString("nomeCliente"),
-                resultSet.getDouble("valorPedido")));
+                resultSet.getDouble("valorPedido"),
+                resultSet.getString("sabor")));
       }
 
       return pizzas;

@@ -4,15 +4,17 @@ public class Pizza {
   private int id;
   private String nomeCliente;
   private Double valorPedido;
+  private String sabor;
 
   public Pizza() {
 
   }
 
-  public Pizza(int id, String nomeCliente, Double valorPedido) {
+  public Pizza(int id, String nomeCliente, Double valorPedido, String sabor) {
     this.id = id;
     this.nomeCliente = nomeCliente;
     this.valorPedido = valorPedido;
+    this.sabor = sabor;
   }
 
   public int getId() {
@@ -37,5 +39,13 @@ public class Pizza {
 
   public void setValorPedido(Double valorPedido) {
     this.valorPedido = valorPedido;
+  }
+
+  public String getSabor() {
+    return sabor;
+  }
+
+  public void setSabor(String sabor) {
+    this.sabor = sabor;
   }
 }
